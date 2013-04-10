@@ -18,10 +18,10 @@ the default), the distribution code-name needs to be specified with the
 installation, and then build-essential packages are installed on top of
 the minimum installation using ``apt-get`` inside the chroot.
 
-For fuller documentation of command-line options, see the pbuilder.8
-manual page. Some configuration will be required for ``/etc/pbuilderrc``
+For fuller documentation of command-line options, see the :manpage:`pbuilder(8)`
+manual page. Some configuration will be required for :file:`/etc/pbuilderrc`
 for the mirror site  [#]_ to use, and proxy configuration may be
-required to allow access through HTTP. See the pbuilderrc.5 manual page
+required to allow access through HTTP. See the :manpage:`pbuilderrc(5)` manual page
 for details.
 
 Updating the base.tgz
@@ -33,7 +33,7 @@ the chroot, and then recreate the base.tgz (the base tar-ball).
 
 It is possible to switch the distribution which the base.tgz is targeted at at
 this point. Specify :option:`--distribution sid --override-config` to change
-the distribution to sid.  [#]_
+the distribution to sid [#]_.
 
 For fuller documentation of command-line options, see the :manpage:`pbuilder(8)`
 manual page
@@ -42,19 +42,19 @@ Building a package using the base.tgz
 -------------------------------------
 
 To build a package inside the chroot, invoke :samp:`pbuilder build {whatever.dsc}`.
-``pbuilder`` will extract the base.tgz to a temporary working directory,
+``pbuilder`` will extract the :file:`base.tgz` to a temporary working directory,
 enter the directory with chroot, satisfy the build-dependencies inside
 chroot, and build the package. The built packages will be moved to a
 directory specified with the :option:`--buildresult` command-line option.
 
-The :option:`--basetgz` option can be used to specify which base.tgz to use.
+The :option:`--basetgz` option can be used to specify which :file:`base.tgz` to use.
 
-``pbuilder`` will extract a fresh base chroot image from base.tgz.
-(base.tgz is created with ``pbuilder create``, and updated with
+``pbuilder`` will extract a fresh base chroot image from :file:`base.tgz`.
+(:file:`base.tgz` is created with ``pbuilder create``, and updated with
 ``pbuilder update``). The chroot is populated with build-dependencies by
-parsing debian/control and invoking ``apt-get``.
+parsing :file:`debian/control` and invoking ``apt-get``.
 
-For fuller documentation of command-line options, see the pbuilder.8
+For fuller documentation of command-line options, see the :manpage:`pbuilder(8)`
 manual page
 
 Facilitating Debian Developers' typing, pdebuild
@@ -104,15 +104,15 @@ Configuration Files
 It is possible to specify all settings by command-line options. However,
 for typing convenience, it is possible to use a configuration file.
 
-``/etc/pbuilderrc`` and ``${HOME}/.pbuilderrc`` are read in when
+:file:`/etc/pbuilderrc` and :file:`${HOME}/.pbuilderrc` are read in when
 ``pbuilder`` is invoked. The possible options are documented in the
-pbuilderrc.5 manual page.
+:manpage:`pbuilderrc(5)` manual page.
 
-It is useful to use ``--configfile`` option to load up a preset
-configuration file when switching between configuration files for
-different distributions.
+It is useful to use :option:`--configfile` option to load up a preset
+configuration file when switching between configuration files for different
+distributions.
 
-Please note ``${HOME}/.pbuilderrc`` supersede system settings. Caveats
+Please note :file:`${HOME}/.pbuilderrc` supersede system settings. Caveats
 is that if you have some configuration, you may need to tweak the
 configuration to work with new versions of pbuilder when upgrading.
 
@@ -138,7 +138,7 @@ privilege when it is required. For example, when installing packages to
 the chroot, ``pbuilder`` will run under root privilege.
 
 To be able to invoke ``pbuilder`` without being root, you need to use
-user-mode-linux, as explained in ?.
+user-mode-linux, as explained in :doc:`uml`.
 
 Using pbuilder for back-porting
 -------------------------------
@@ -152,7 +152,7 @@ manual interaction is required:
 
 -  The package from the unstable distribution may depend on packages or
    versions of packages which are only available in unstable. Thus, it
-   may not be possible to satisfy Build-Depends: on stable (without
+   may not be possible to satisfy ``Build-Depends:`` on stable (without
    additional backporting work).
 
 -  The stable distribution may have bugs that have been fixed in
@@ -164,12 +164,11 @@ manual interaction is required:
 Mass-building packages
 ----------------------
 
-``pbuilder`` can be automated, because its operations are
-non-interactive. It is possible to run ``pbuilder`` through multiple
-packages non-interactively. Several such scripts are known to exist.
-Junichi Uekawa has been running such a script since 2001, and has been
-filing bugs on packages that fail the test of ``pbuilder``. There were
-several problems with auto-building:
+``pbuilder`` can be automated, because its operations are non-interactive. It
+is possible to run ``pbuilder`` through multiple packages non-interactively.
+Several such scripts are known to exist.  Junichi Uekawa has been running such
+a script since 2001, and has been filing bugs on packages that fail the test of
+``pbuilder``. There were several problems with auto-building:
 
 -  Build-Dependencies need to install non-interactively, but some
    packages are so broken that they cannot install without interaction
@@ -188,8 +187,8 @@ have their values.
 
 A script that was used by Junichi Uekawa in the initial run is now
 included in the ``pbuilder`` distribution, as ``pbuildd.sh``. It is
-available in ``/usr/share/doc/pbuilder/examples/pbuildd/`` and its
-configuration is in ``/etc/pbuilder/pbuildd-config.sh``. It should be
+available in :file:`/usr/share/doc/pbuilder/examples/pbuildd/` and its
+configuration is in :file:`/etc/pbuilder/pbuildd-config.sh`. It should be
 easy enough to set up for people who are used to ``pbuilder``. It has
 been running for quite a while, and it should be possible to set the
 application up on your system also. This version of the code is not the
@@ -291,7 +290,7 @@ environment variables required for ``pentium-builder`` to function.
 .. [#] Only upgrading is supported. Debian does not generally support
        downgrading (yet?).
 
-.. [#] It is possible to specify ``--hookdir /usr/share/doc/pbuilder/examples``
+.. [#] It is possible to specify :option:`--hookdir /usr/share/doc/pbuilder/examples`
        command-line option to include all example hooks as well.
 
 .. [#] See :manpage:`run-parts(8)`. For example, no '.' in file names!
