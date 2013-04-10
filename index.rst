@@ -10,6 +10,11 @@ pbuilder User's Manual: Usage and operations
 
    The official documentation can be browsed at http://pbuilder.alioth.debian.org/
 
+This particular document is also available as:
+
+* `EPub <https://media.readthedocs.org/epub/pbuilder-docs/latest/pbuilder-docs.epub>`_
+* `PDF <https://media.readthedocs.org/pdf/pbuilder-docs/latest/pbuilder-docs.pdf>`_
+
 Table Of Contents
 =================
 
