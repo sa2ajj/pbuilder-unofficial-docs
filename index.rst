@@ -15,6 +15,8 @@ This particular document is also available as:
 * `EPub <https://media.readthedocs.org/epub/pbuilder-docs/latest/pbuilder-docs.epub>`_
 * `PDF <https://media.readthedocs.org/pdf/pbuilder-docs/latest/pbuilder-docs.pdf>`_
 
+Last built: |today|
+
 Table Of Contents
 =================
 
