@@ -18,18 +18,11 @@ the default), the distribution code-name needs to be specified with the
 installation, and then build-essential packages are installed on top of
 the minimum installation using ``apt-get`` inside the chroot.
 
-.. [#] debootstrap or cdebootstrap can be chosen
-
 For fuller documentation of command-line options, see the pbuilder.8
 manual page. Some configuration will be required for ``/etc/pbuilderrc``
 for the mirror site  [#]_ to use, and proxy configuration may be
 required to allow access through HTTP. See the pbuilderrc.5 manual page
 for details.
-
-.. [#]
-   The mirror site should preferably be a local mirror or a cache
-   server, so as not to overload the public mirrors with a lot of
-   access. Use of tools such as apt-proxy would be advisable.
 
 Updating the base.tgz
 ---------------------
@@ -40,9 +33,6 @@ the chroot, and then recreate the base.tgz (the base tar-ball).
 
 It is possible to switch the distribution which the base.tgz is targeted
 at at this point. Specify `` `` to change the distribution to sid.  [#]_
-
-.. [#] Only upgrading is supported. Debian does not generally support
-       downgrading (yet?).
 
 For fuller documentation of command-line options, see the pbuilder.8
 manual page
@@ -263,11 +253,6 @@ test is ran inside the chroot. The current directory is the top
 directory of the source-code. This means you can expect to be able to
 use ./debian/ directory from inside your scripts.
 
-.. [#] It is possible to specify ``--hookdir /usr/share/doc/pbuilder/examples``
-       command-line option to include all example hooks as well.
-
-.. [#] See run-parts(8). For example, no '.' in file names!
-
 Example scripts for use with pbuilder-test can be found in
 ``/usr/share/doc/pbuilder/examples/pbuilder-test``.
 
@@ -294,3 +279,18 @@ following in the configuration:
 It will instruct ``pbuilder`` to install the ``pentium-builder`` package
 and also the GCC 3.2 compiler packages inside the chroot, and set the
 environment variables required for ``pentium-builder`` to function.
+
+.. [#] debootstrap or cdebootstrap can be chosen
+
+.. [#]
+   The mirror site should preferably be a local mirror or a cache
+   server, so as not to overload the public mirrors with a lot of
+   access. Use of tools such as apt-proxy would be advisable.
+
+.. [#] Only upgrading is supported. Debian does not generally support
+       downgrading (yet?).
+
+.. [#] It is possible to specify ``--hookdir /usr/share/doc/pbuilder/examples``
+       command-line option to include all example hooks as well.
+
+.. [#] See run-parts(8). For example, no '.' in file names!
