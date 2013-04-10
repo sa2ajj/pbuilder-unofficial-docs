@@ -31,10 +31,11 @@ Updating the base.tgz
 chroot, invoke ``apt-get update`` and ``apt-get dist-upgrade`` inside
 the chroot, and then recreate the base.tgz (the base tar-ball).
 
-It is possible to switch the distribution which the base.tgz is targeted
-at at this point. Specify `` `` to change the distribution to sid.  [#]_
+It is possible to switch the distribution which the base.tgz is targeted at at
+this point. Specify :option:`--distribution sid --override-config` to change
+the distribution to sid.  [#]_
 
-For fuller documentation of command-line options, see the pbuilder.8
+For fuller documentation of command-line options, see the :manpage:`pbuilder(8)`
 manual page
 
 Building a package using the base.tgz
@@ -293,4 +294,4 @@ environment variables required for ``pentium-builder`` to function.
 .. [#] It is possible to specify ``--hookdir /usr/share/doc/pbuilder/examples``
        command-line option to include all example hooks as well.
 
-.. [#] See run-parts(8). For example, no '.' in file names!
+.. [#] See :manpage:`run-parts(8)`. For example, no '.' in file names!
